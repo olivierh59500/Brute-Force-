@@ -102,7 +102,7 @@ for(0..scalar(@h)-1){
     $attr3{$tmp[0]} = $tmp[1];
 }
 
-my $xms = sprintf("%s", "CADEE UUSS NEGAUUM AUMM PRA BEIJÁ. PRA ME DAR UM CELULAR DI PRESENTE TMB PRA EU NAO PRECISAR PEGAR DOZOTRO");
+my $xms = sprintf("%s", "WHERE'S NIGGAS TO KISS ON MOUTH ?! IM BOYOLA, IN BR : VIADÃO");
 
 $attr3{'xc_message'} = $xms;
 $attr3{'users_with'} = '';
