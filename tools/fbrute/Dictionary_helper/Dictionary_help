@@ -1,0 +1,110 @@
+#!/usr/bin/env/perl
+
+use strict;
+use warnings;
+
+my ($i, $j, $k, $l) = 0;
+my $data = "";
+my (@lines, @data, $debug, $limit);
+
+_dataLoad();
+_getLines();
+_splitLines();
+my $manual;
+system("pause");
+exit(0);
+
+sub _getLines {
+#manual
+	$manual = 1;
+		foreach (@lines) {
+			$i += 1;
+		}
+		if ($manual == 1 || $i eq 99999) {
+			print "Hey, file have reached EXACTLY 100k lines\n" if ($i eq 99999);
+			$limit = 1000;
+			return 1;
+		}
+		if ($i > 500000) {
+			print "Hey, file have reached more than 500k lines\n";
+			#don't define $limit
+		}
+		if (($i % 3) == 0) {
+			$limit = 2000;
+			$debug .= "[DEBUG] mmc is 2\n";
+		}
+		if (($i % 3) == 0) {
+			$limit = 3000;
+			$debug .= "[DEBUG] mmc is 3\n";
+		}
+		elsif (($i % 4) == 0) {
+			$limit = 4000;
+			$debug .= "[DEBUG] mmc is 4\n";
+		}
+		elsif (($i % 5) == 0) {
+			$limit = 5000;
+			$debug .= "[DEBUG] mmc is 5\n";
+		}
+		elsif (($i % 6) == 0) {
+			$limit = 6000;
+			$debug .= "[DEBUG] mmc is 6\n";
+		}
+		elsif (($i % 7) == 0) {
+			$limit = 7000;
+			$debug .= "[DEBUG] mmc is 7\n";
+		} 
+		elsif (($i % 8) == 0) {
+			$limit = 8000;
+			$debug .= "[DEBUG] mmc is 7\n";
+		} 
+		elsif (($i % 9) == 0) {
+			$limit = 9000;
+			$debug .= "[DEBUG] mmc is 7\n";
+		} 
+		print $debug;
+		undef $debug;
+}
+
+sub _splitLines {
+my $result;
+mkdir 'partioners';
+	foreach (@lines) {									#Loop on file text
+	$l = $limit;
+	$k += 1;											#Counter of lines
+		if (($k % $limit) == 0) {						#\
+			$l = $k + $limit;
+			$j += 1;	
+			$debug .= "Limit reached at $limit x $j = ". eval($limit*$j) ." linhas\n" if ($k eq scalar @lines);			
+			open G, ">partioners/$j.txt";							#  \
+			print G @data;								#   -Checa se linha a atual é divísivel por alguns números
+			close (G);									#  /
+			undef @data;
+			#print "Comparing if $j is equal to " . eval (int($i/$limit)) . "\n";
+			if ($j eq eval (int($i/$limit))) {			#/\/\Adiciona um contador até a divisão se esgotar
+				if ($k < scalar @lines) {				#Se o "contador do apocalipse" for menor que o total, e se não for mais divisível!
+					push @data, $lines[$k];				#Adiciona para a linha de dados 
+					$k += 1;
+					$result = eval(( scalar @lines) - $k);
+					$debug .= "Total lines : $result\n";
+				}
+			}
+			undef $data;
+		}
+		else {
+			push @data, $lines[$k];
+		}
+	}
+	print $debug."\n";
+}
+
+sub _dataLoad {
+if (open F, "<MyOwnDictionary.txt") {
+@lines = <F>;
+close (F);
+} else {
+print "Error. Cannot open Dictionary.txt\n";
+return 0;
+}
+
+}
+
