@@ -6,7 +6,7 @@ You should create your own dictionary. !
 
 2 ) If you want to do something cool such as brute forcing facebook, try using Hydra ! But how to ?! 
 
-hydra -l <VICTIM ID> -P <DICTIONARY> <FACEBOOK IP AD> xmpp
+hydra -l \<VICTIM ID\> -P \<DICTIONARY\> \<FACEBOOK IP AD\> xmpp
 
 To get the facebook ip AD , just use ping on command prompt and use this address. ! 
 Now paste these lines inside a batch file, download Hydra, and wait to crack ;)
