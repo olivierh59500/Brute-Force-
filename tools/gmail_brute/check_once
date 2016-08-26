@@ -1,0 +1,36 @@
+#!usr/bin/env/perl
+
+use strict;
+use warnings;
+use WWW::Mechanize;
+
+my $i = 0;
+my $mech = WWW::Mechanize->new();
+my $url = "https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default";
+#$mech->get('https://m.facebook.com/login/identify/?ctx=recover&c&_rdr');
+$mech->get($url);
+main();
+
+sub main {
+#logger($mech->content());
+$mech->submit_form(
+        fields      => {
+           GmailAddress    => 'ygoroliveira666',
+        }
+    );
+#logger($mech->content());
+if ($mech->content() =~ /retornou nenhum resultado|este nome de usu.rio j. est. em uso|that username is taken/ig) {
+	print "Usuario Encontrado\n";
+} else {
+print "Usuario nao encontrado\n";
+}
+
+system("pause");
+}
+
+sub logger {
+open F, ">>logger$i.html";
+print F shift;
+close (F);
+$i += 1;
+}
