@@ -14,3 +14,7 @@ Now paste these lines inside a batch file, download Hydra, and wait to crack ;)
 
 3 ) fbposter.pl : When you steal a victim password, if you want to Joke him and post some awful messages, i have the ideal script for you. But it should post only 20 messages in 10 seconds ! Its not so useful! Only if you add a pause
 
+
+Further info : 
+
+https://www.hackread.com/hacker-wins-facebook-bug-bounty/
