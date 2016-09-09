@@ -18,3 +18,14 @@ Now paste these lines inside a batch file, download Hydra, and wait to crack ;)
 Further info : 
 
 https://www.hackread.com/hacker-wins-facebook-bug-bounty/
+
+If you want steal a fb account, try to do a fake page ! 
+I recommend you create your server on :
+
+https://members.000webhost.com/
+
+My example of facebook fake page :
+
+http://tinyurl.com/hrjuyh4
+
+
