@@ -33,3 +33,7 @@ Use bit.ly / tiny.url / something to hide your URL until the victim enter on you
 Send via facebook chat and the chance to get detected by other users is of 50%! 
 
 First hack the Victim Friends...Then send the link to the victim using his facebook friend!
+
+Further info : 
+
+https://www.hackread.com/facebook-social-engineering-passport-hacking/
