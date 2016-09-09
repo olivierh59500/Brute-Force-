@@ -24,8 +24,8 @@ I recommend you create your server on :
 
 https://members.000webhost.com/
 
-My example of facebook fake page :
+Tutorial how to :
 
-http://tinyurl.com/hrjuyh4
+http://allhackd.blogspot.com.br/2012/12/create-your-own-facebook-phishing-page.html#.V9M2aJgrKM8
 
 
