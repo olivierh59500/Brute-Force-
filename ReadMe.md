@@ -14,12 +14,11 @@ Now paste these lines inside a batch file, download Hydra, and wait to crack ;)
 
 3 ) fbposter.pl : When you steal a victim password, if you want to Joke him and post some awful messages, i have the ideal script for you. But it should post only 20 messages in 10 seconds ! Its not so useful! Only if you add a pause
 
-
 Further info : 
 
 https://www.hackread.com/hacker-wins-facebook-bug-bounty/
 
-If you want steal a fb account, try to do a fake page ! 
+4) If you want steal a fb account, try to do a fake page ! 
 I recommend you create your server on :
 
 https://members.000webhost.com/
@@ -28,4 +27,4 @@ Tutorial how to :
 
 http://allhackd.blogspot.com.br/2012/12/create-your-own-facebook-phishing-page.html#.V9M2aJgrKM8
 
-
+#Social Engineer Rules! :D
