@@ -28,3 +28,6 @@ Tutorial how to :
 http://allhackd.blogspot.com.br/2012/12/create-your-own-facebook-phishing-page.html#.V9M2aJgrKM8
 
 #Social Engineering Rules! :D
+
+Use bit.ly / tiny.url / something to hide your URL until the victim enter on your fake page ! 
+Send via facebook chat and the chance to get detected by other users is of 50%! 
