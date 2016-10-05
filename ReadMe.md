@@ -1,5 +1,6 @@
 # Brute-Force
 
+#Use crunch to create your own dictionary. Or else a more sophisticated tool
 1 ) fbrute.pl : SingleThread or Multithread way to search the victim password. It's more easy to use the SingleThread. ! 
 You should create your own dictionary. !
 
